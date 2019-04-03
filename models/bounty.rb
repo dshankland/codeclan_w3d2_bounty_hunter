@@ -1,4 +1,5 @@
 require('pg')
+require('pry-byebug')
 
 class Bounty
 
@@ -86,9 +87,11 @@ class Bounty
     db.prepare("find_by_name", sql)
     # run the prepared statement
     found = db.exec_prepared("find_by_name", values)
+    # binding.pry
     # close the db
     db.close()
-    return found[0]
+    return found[0] if found.count != 0
+    return nil
   end
 
   # TODO: find returns once instance when an id is passed in
@@ -105,7 +108,8 @@ class Bounty
     found = db.exec_prepared("find", values)
     # close the db
     db.close()
-    return found[0]
+    return found[0] if found.count != 0
+    return nil
   end
 
 end
