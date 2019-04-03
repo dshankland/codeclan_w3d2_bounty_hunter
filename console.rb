@@ -34,9 +34,9 @@ Bounty.delete_all()
 bounty1.save()
 bounty2.save()
 # find by name Han Solo
-find_by_name = Bounty.find_by_name('Han Soo')
+find_by_name = Bounty.find_by_name('Han Solo')
 binding.pry
 # find by id
-p "Found by name: #{find_by_name['name']} at id #{find_by_name['id']}"
+p "Found by name: #{find_by_name.name} at id #{find_by_name.id}"
 find = Bounty.find(5)
-p "Found by id: #{find['name']} at id #{find['id']}"
+p "Found by id: #{find.name} at id #{find.id}"

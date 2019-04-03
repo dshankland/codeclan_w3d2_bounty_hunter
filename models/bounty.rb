@@ -90,7 +90,8 @@ class Bounty
     # binding.pry
     # close the db
     db.close()
-    return found[0] if found.count != 0
+    # change this to return bunty class object - create a new bounty
+    return Bounty.new(found[0]) if found.count != 0
     return nil
   end
 
@@ -108,7 +109,7 @@ class Bounty
     found = db.exec_prepared("find", values)
     # close the db
     db.close()
-    return found[0] if found.count != 0
+    return Bounty.new(found[0]) if found.count != 0
     return nil
   end
 
